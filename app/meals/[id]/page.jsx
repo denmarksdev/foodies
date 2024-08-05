@@ -53,27 +53,4 @@ export default async function MealDetails({ params }) {
       </main>
     </>
   );
-
-  return (
-    <>
-      <header className={classes.header}>
-        <div className={classes.image}>
-          <Image src={meal.image} fill alt={meal.title} />
-        </div>
-        <div className={classes.headerText}>
-          <h1>{meal}</h1>
-          <p className={classes.creator}>
-            by <a href={`mailto:${meal.creator_email}`}>{meal.creator}</a>
-          </p>
-          <p className={classes.summary}>SUMMARY</p>
-        </div>
-      </header>
-      <main>
-        <p
-          className={classes.instrucions}
-          dangerouslySetInnerHTML={{ __hyml: "..." }}
-        ></p>
-      </main>
-    </>
-  );
 }
