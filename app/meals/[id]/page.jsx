@@ -4,21 +4,22 @@ import Image from "next/image";
 import { getMeal } from "@/meals";
 import { notFound } from "next/navigation";
 
-// export async function generateMetadata({params}) {
-//   const meal = getMeal(params.id);
+export async function generateMetadata({params}) {
+  const meal = await getMeal(params.id);
 
-//   if (!meal) {
-//     notFound();
-//   }
+  if (!meal) {
+    notFound();
+  }
 
-//   return {
-//     title: meal.title,
-//     description: meal.summary,
-//   };
-// }
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
 
-export default function MealDetails({ params }) {
-  const meal = getMeal(params.id);
+export default async function MealDetails({ params }) {
+
+  const meal = await getMeal(params.id);
 
   if (!meal) {
     notFound();
